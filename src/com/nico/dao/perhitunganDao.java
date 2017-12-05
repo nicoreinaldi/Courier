@@ -14,64 +14,70 @@ import java.util.List;
  * @author user
  */
 public class perhitunganDao {
-    private DataPaket paket = new DataPaket();
-    private double totalBayar=0.0;
-    private double totalCost=0.0;
-    private String kota;
-    private double berat;
-    
-     List<JenisLayanan> layananList = DataDAO.getTarif();
-    
-    public double calculateBiaya(){
+    private final double asuransi = 0.05;
+
+    public double hargaReg(DataPaket paket) {
+        List<JenisLayanan> layananList = DataDAO.getTarif();
+        double berat = paket.getBeratBarang();
+        double hargaBarang = paket.getHargaBarang();
+        String tujuan = paket.getKotaTujuan();
+        String layanan = paket.getJenisLayanan();
+        String insurance = paket.getAsuransi();
+        double biaya = 0.0;
+        double total = 0.0;
         for (JenisLayanan jenisLayanan : layananList) {
-            if (paket.getKotaTujuan().equalsIgnoreCase(jenisLayanan.getTujuan())) {
-                if (paket.getJenisLayanan().equalsIgnoreCase("Reg")){
-                    totalCost =jenisLayanan.getReg()*paket.getBeratBarang();
-                    //if (paket.getAsuransi().equalsIgnoreCase("Yes")) {
-                    //    totalBayar = totalCost*paket.getHargaBarang();
-                    //}
-                    //else if (paket.getAsuransi().equalsIgnoreCase("No")) {
-                    //    totalBayar = totalCost;
-                    //}
+            if (jenisLayanan.getTujuan().equalsIgnoreCase(tujuan)) {
+                if (layanan.equalsIgnoreCase("Reg")) {
+                    biaya = jenisLayanan.getReg()* berat;
+                    if (insurance.equalsIgnoreCase("Ya")) {
+                        total = biaya + (hargaBarang * this.asuransi);
+                    } 
+                    else if (insurance.equalsIgnoreCase("No")) {
+                        total = biaya;
+                    }
+                }
+
+                else if (layanan.equalsIgnoreCase("Ons")) {
+                    biaya = jenisLayanan.getOns()* berat;
+                    if (insurance.equalsIgnoreCase("Ya")) {
+                        total = biaya + (hargaBarang * this.asuransi);
+                    }
+                    else if (insurance.equalsIgnoreCase("No")) {
+                        total = biaya;
+                    }
                 }
                 
-                else if (paket.getJenisLayanan().equalsIgnoreCase("Ons")){
-                    //if (paket.getAsuransi().equalsIgnoreCase("Yes")) {
-                        //totalBayar = totalCost*paket.getHargaBarang();
-//                    }
-//                    else if (paket.getAsuransi().equalsIgnoreCase("No")) {
-                        totalBayar = jenisLayanan.getOns()*paket.getBeratBarang();
-                    //}
+                else if (layanan.equalsIgnoreCase("Trc")) {
+                    biaya = jenisLayanan.getTrc()* berat;
+                    if (insurance.equalsIgnoreCase("Ya")) {
+                        total = biaya + (hargaBarang * this.asuransi);
+                    }
+                    else if (insurance.equalsIgnoreCase("No")) {
+                        total = biaya;
+                    }
                 }
                 
-                else if (paket.getJenisLayanan().equalsIgnoreCase("Trc")){
-//                    if (paket.getAsuransi().equalsIgnoreCase("Yes")) {
-//                        totalBayar = jenisLayanan.getTrc()*paket.getBeratBarang()*paket.getHargaBarang();
-//                    }
-//                    else if (paket.getAsuransi().equalsIgnoreCase("No")) {
-                        totalBayar = jenisLayanan.getTrc()*paket.getBeratBarang();
-                    //}
+                else if (layanan.equalsIgnoreCase("Hds")) {
+                    biaya = jenisLayanan.getHds()* berat;
+                    if (insurance.equalsIgnoreCase("Ya")) {
+                        total = biaya + (hargaBarang * this.asuransi);
+                    }
+                    else if (insurance.equalsIgnoreCase("No")) {
+                        total = biaya;
+                    }
                 }
                 
-                else if (paket.getJenisLayanan().equalsIgnoreCase("Hds")){
-//                    if (paket.getAsuransi().equalsIgnoreCase("Yes")) {
-//                        totalBayar = jenisLayanan.getHds()*paket.getBeratBarang()*paket.getHargaBarang();
-//                    }
-//                    else if (paket.getAsuransi().equalsIgnoreCase("No")) {
-                        totalBayar = jenisLayanan.getHds()*paket.getBeratBarang();
-                    //}
-                }
-                
-                else if (paket.getJenisLayanan().equalsIgnoreCase("Sds")){
-//                    if (paket.getAsuransi().equalsIgnoreCase("Yes")) {
-//                        totalBayar = jenisLayanan.getSds()*paket.getBeratBarang()*paket.getHargaBarang();
-//                    }
-//                    else if (paket.getAsuransi().equalsIgnoreCase("No")) {
-                        totalBayar = jenisLayanan.getSds()*paket.getBeratBarang();
-                    //}
+                else if (layanan.equalsIgnoreCase("Sds")) {
+                    biaya = jenisLayanan.getSds()* berat;
+                    if (insurance.equalsIgnoreCase("Ya")) {
+                        total = biaya + (hargaBarang * this.asuransi);
+                    }
+                    else if (insurance.equalsIgnoreCase("No")) {
+                        total = biaya;
+                    }
                 }
             }
         }
-        return totalBayar;
+        return total;
     }
 }
