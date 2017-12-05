@@ -14,23 +14,22 @@ import java.util.List;
  * @author user
  */
 public class perhitunganDao {
-    private final double asuransi = 0.05;
-
     public double hargaReg(DataPaket paket) {
         List<JenisLayanan> layananList = DataDAO.getTarif();
         double berat = paket.getBeratBarang();
-        double hargaBarang = paket.getHargaBarang();
         String tujuan = paket.getKotaTujuan();
         String layanan = paket.getJenisLayanan();
         String insurance = paket.getAsuransi();
-        double biaya = 0.0;
-        double total = 0.0;
+        double hargaBarang = paket.getHargaBarang();
+        double biaya;
+        double total = 0;
+        double asuransi = hargaBarang * 0.03;
         for (JenisLayanan jenisLayanan : layananList) {
             if (jenisLayanan.getTujuan().equalsIgnoreCase(tujuan)) {
                 if (layanan.equalsIgnoreCase("Reg")) {
                     biaya = jenisLayanan.getReg()* berat;
                     if (insurance.equalsIgnoreCase("Ya")) {
-                        total = biaya + (hargaBarang * this.asuransi);
+                        total = biaya + asuransi;
                     } 
                     else if (insurance.equalsIgnoreCase("No")) {
                         total = biaya;
@@ -40,7 +39,7 @@ public class perhitunganDao {
                 else if (layanan.equalsIgnoreCase("Ons")) {
                     biaya = jenisLayanan.getOns()* berat;
                     if (insurance.equalsIgnoreCase("Ya")) {
-                        total = biaya + (hargaBarang * this.asuransi);
+                        total = biaya + asuransi;
                     }
                     else if (insurance.equalsIgnoreCase("No")) {
                         total = biaya;
@@ -50,7 +49,7 @@ public class perhitunganDao {
                 else if (layanan.equalsIgnoreCase("Trc")) {
                     biaya = jenisLayanan.getTrc()* berat;
                     if (insurance.equalsIgnoreCase("Ya")) {
-                        total = biaya + (hargaBarang * this.asuransi);
+                        total = biaya + asuransi;
                     }
                     else if (insurance.equalsIgnoreCase("No")) {
                         total = biaya;
@@ -60,7 +59,7 @@ public class perhitunganDao {
                 else if (layanan.equalsIgnoreCase("Hds")) {
                     biaya = jenisLayanan.getHds()* berat;
                     if (insurance.equalsIgnoreCase("Ya")) {
-                        total = biaya + (hargaBarang * this.asuransi);
+                        total = biaya + asuransi;
                     }
                     else if (insurance.equalsIgnoreCase("No")) {
                         total = biaya;
@@ -70,7 +69,7 @@ public class perhitunganDao {
                 else if (layanan.equalsIgnoreCase("Sds")) {
                     biaya = jenisLayanan.getSds()* berat;
                     if (insurance.equalsIgnoreCase("Ya")) {
-                        total = biaya + (hargaBarang * this.asuransi);
+                        total = biaya + asuransi;
                     }
                     else if (insurance.equalsIgnoreCase("No")) {
                         total = biaya;

@@ -611,14 +611,14 @@ public class JasaPengirimanWindows extends javax.swing.JFrame {
         // TODO add your handling code here:
         dataPengirim.setNamaPengirim(namaPengirimTextField.getText());
         dataPengirim.setAlamat(alamatPengirimTextArea.getText());
-//        dataPengirim.setKota(kotaPengirimComboBox.getSelectedItem().toString());
+        dataPengirim.setKota(kotaPengirimComboBox.getSelectedItem().toString());
         dataPengirim.setKodePos(kodeposPengirimTextField.getText());
         dataPengirim.setProvinsi(String.valueOf(provinsiPengirimComboBox.getSelectedItem()));
         dataPengirim.setTelepon(telponPengirimTextField.getText());
 
         penerima.setNamaPenerima(namaPenerimaTextField.getText());
         penerima.setAlamat(alamatPenerimaTextArea.getText());
- //       paket.setKotaTujuan(kotaPenerimaComboBox.getSelectedItem().toString());
+        penerima.setKota(kotaPenerimaComboBox.getSelectedItem().toString());
         penerima.setKodePos(kodeposPenerimaTextField.getText());
         penerima.setTelepon(teleponPenerimaTextField.getText());
         penerima.setProvinsi(jenisPaketComboBox.getActionCommand());
@@ -633,17 +633,15 @@ public class JasaPengirimanWindows extends javax.swing.JFrame {
         paket.setKotaTujuan(kotaPenerimaComboBox.getSelectedItem()+"");
         paket.setJenisLayanan(jenisPaketComboBox.getSelectedItem().toString());
         paket.setBeratBarang(Double.parseDouble(beratBarangTextField.getText()));
-        paket.setHargaBarang(Double.parseDouble(hargaBarangTextField.getText()));
-        paket.setAsuransi(asuransiComboBox.getSelectedItem()+"");
+        paket.setAsuransi(asuransiComboBox.getSelectedItem().toString());
+        paket.setHargaBarang(Double.valueOf(hargaBarangTextField.getText()));
 
-//        paket.setNomorPaket(nomorResiTextField.getText());
-//        paket.setJenisBarang(jenisBarangTextField.getText());
-//        paket.setTanggalKirim(tanggalKirimDateChooser.getDate());
-//        dataDimensi.setPanjang(Double.parseDouble(dimensiPanjangTextField.getText()));
-//        dataDimensi.setLebar(Double.parseDouble(dimensiLebarTextField.getText()));
-//        dataDimensi.setTinggi(Double.parseDouble(dimensiTinggiTextField.getText()));
-        //paket.setAsuransi(asuransiComboBox.getSelectedItem().toString());
-        //paket.setHargaBarang(Double.parseDouble(hargaBarangTextField.getText()));
+        paket.setNomorPaket(nomorResiTextField.getText());
+        paket.setJenisBarang(jenisBarangTextField.getText());
+        paket.setTanggalKirim(tanggalKirimDateChooser.getDate());
+        dataDimensi.setPanjang(Double.parseDouble(dimensiPanjangTextField.getText()));
+        dataDimensi.setLebar(Double.parseDouble(dimensiLebarTextField.getText()));
+        dataDimensi.setTinggi(Double.parseDouble(dimensiTinggiTextField.getText()));
 
         totalBayarLabel.setText(String.valueOf(hitung.hargaReg(paket)));
     }//GEN-LAST:event_submitBayarButtonActionPerformed
@@ -692,7 +690,6 @@ public class JasaPengirimanWindows extends javax.swing.JFrame {
         
         else if (asuransiComboBox.getSelectedItem() == "Yes") {
             hargaBarangTextField.setEnabled(true);
-            hargaBarangTextField.setText("");
         }
     }//GEN-LAST:event_asuransiComboBoxActionPerformed
 
