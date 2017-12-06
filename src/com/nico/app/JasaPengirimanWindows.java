@@ -609,19 +609,19 @@ public class JasaPengirimanWindows extends javax.swing.JFrame {
 
     private void submitDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitDataButtonActionPerformed
         // TODO add your handling code here:
-        dataPengirim.setNamaPengirim(namaPengirimTextField.getText());
-        dataPengirim.setAlamat(alamatPengirimTextArea.getText());
-        dataPengirim.setKota(kotaPengirimComboBox.getSelectedItem().toString());
-        dataPengirim.setKodePos(kodeposPengirimTextField.getText());
-        dataPengirim.setProvinsi(String.valueOf(provinsiPengirimComboBox.getSelectedItem()));
-        dataPengirim.setTelepon(telponPengirimTextField.getText());
-
-        penerima.setNamaPenerima(namaPenerimaTextField.getText());
-        penerima.setAlamat(alamatPenerimaTextArea.getText());
-        penerima.setKota(kotaPenerimaComboBox.getSelectedItem().toString());
-        penerima.setKodePos(kodeposPenerimaTextField.getText());
-        penerima.setTelepon(teleponPenerimaTextField.getText());
-        penerima.setProvinsi(jenisPaketComboBox.getActionCommand());
+//        dataPengirim.setNamaPengirim(namaPengirimTextField.getText());
+//        dataPengirim.setAlamat(alamatPengirimTextArea.getText());
+//        dataPengirim.setKota(kotaPengirimComboBox.getSelectedItem().toString());
+//        dataPengirim.setKodePos(kodeposPengirimTextField.getText());
+//        dataPengirim.setProvinsi(String.valueOf(provinsiPengirimComboBox.getSelectedItem()));
+//        dataPengirim.setTelepon(telponPengirimTextField.getText());
+//
+//        penerima.setNamaPenerima(namaPenerimaTextField.getText());
+//        penerima.setAlamat(alamatPenerimaTextArea.getText());
+//        penerima.setKota(kotaPenerimaComboBox.getSelectedItem().toString());
+//        penerima.setKodePos(kodeposPenerimaTextField.getText());
+//        penerima.setTelepon(teleponPenerimaTextField.getText());
+//        penerima.setProvinsi(jenisPaketComboBox.getActionCommand());
     }//GEN-LAST:event_submitDataButtonActionPerformed
 
     private void teleponPenerimaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teleponPenerimaTextFieldActionPerformed
@@ -636,12 +636,12 @@ public class JasaPengirimanWindows extends javax.swing.JFrame {
         paket.setAsuransi(asuransiComboBox.getSelectedItem().toString());
         paket.setHargaBarang(Double.valueOf(hargaBarangTextField.getText()));
 
-        paket.setNomorPaket(nomorResiTextField.getText());
-        paket.setJenisBarang(jenisBarangTextField.getText());
-        paket.setTanggalKirim(tanggalKirimDateChooser.getDate());
-        dataDimensi.setPanjang(Double.parseDouble(dimensiPanjangTextField.getText()));
-        dataDimensi.setLebar(Double.parseDouble(dimensiLebarTextField.getText()));
-        dataDimensi.setTinggi(Double.parseDouble(dimensiTinggiTextField.getText()));
+//        paket.setNomorPaket(nomorResiTextField.getText());
+//        paket.setJenisBarang(jenisBarangTextField.getText());
+//        paket.setTanggalKirim(tanggalKirimDateChooser.getDate());
+//        dataDimensi.setPanjang(Double.parseDouble(dimensiPanjangTextField.getText()));
+//        dataDimensi.setLebar(Double.parseDouble(dimensiLebarTextField.getText()));
+//        dataDimensi.setTinggi(Double.parseDouble(dimensiTinggiTextField.getText()));
 
         totalBayarLabel.setText(String.valueOf(hitung.hargaReg(paket)));
     }//GEN-LAST:event_submitBayarButtonActionPerformed

@@ -28,7 +28,7 @@ public class perhitunganDao {
             if (jenisLayanan.getTujuan().equalsIgnoreCase(tujuan)) {
                 if (layanan.equalsIgnoreCase("Reg")) {
                     biaya = jenisLayanan.getReg()* berat;
-                    if (insurance.equalsIgnoreCase("Ya")) {
+                    if (insurance.equalsIgnoreCase("Yes")) {
                         total = biaya + asuransi;
                     } 
                     else if (insurance.equalsIgnoreCase("No")) {
